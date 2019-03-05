@@ -91,6 +91,10 @@ class SomeComponent extends React.Component {
 }
 ```
 
+# Redux
+
+
+
 # Styling
 
 * ```semantic-ui```
@@ -285,3 +289,36 @@ gen.next('newest');
 // Object { value: oldValue, done: false }
 // Object { value: newest, done: true }
 ```
+
+## Promises
+
+The ```Promise``` object represents the eventual completion (or failure) of an **asynchronous** operation, and its resulting value.
+
+The Three States of Promises:
+* unresolved - waiting for something to finish
+* resolved - something finished ant it all went ok
+* rejected - something finished and something went bad
+
+```js
+let promise = new Promise((resolve, reject) => {
+    resolve();
+});
+
+promise
+    .then(() => console.log('executed'))
+    .catch(() => console.log('only during an exception'));
+```
+
+## Fetch
+
+The ```Fetch``` API provides an interface for fetching resources (including across the network). Returns a **Promise**. *But*, it won't go to a catch statement if it's a bad error code e.g. 404 it will go a then case. It will only fail and go to a catch statement when the network request flat out fails to be issued.
+
+```js
+const url = "https://jsonplaceholder.typicode.com/posts/";
+
+fetch(url)
+    .then(response => response.json())
+    .then(data => console.log(data));
+```
+
+Use ```Axios``` instead.
